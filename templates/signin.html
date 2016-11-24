@@ -4,18 +4,15 @@
   <head>
     <title>Bucket List App</title>
 
-   
+    <!-- bootstrap links -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-   <!-- <link href="../static/css/signup.css" rel="stylesheet">
-    <script src="../static/js/jquery-1.11.2.js"></script>
-    <script src="../static/js/signIn.js"></script>
-   -->
+
   </head>
 
   <body>
 
+    <!-- creates three buttons on top right of web page -->
     <div class="container">
       <div class="header">
         <nav>
@@ -28,6 +25,7 @@
         <h3 class="text-muted">My Bucket List</h3>
       </div>
 
+      <!-- creates label and input for email address and password-->
       <div class="jumbotron">
         <h1>Bucket List</h1>
         <form class="form-signin" action="/validateLogin" method="post">
@@ -39,7 +37,8 @@
         <button id="btnSignIn" class="btn btn-xs btn-success btn-block" type="submit">Sign in</button>
       </form>
       </div>
-
+      
+      <!-- Footer method -->
       <footer class="footer">
         <p>&copy; Gary Mannion Python Flask App</p>
       </footer>
