@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect
 from flask.ext.mysql import MySQL
 #from werkzeug import generate_password_hash, check_password_hash
 
@@ -21,7 +21,27 @@ def main():
 def showSignUp():
     return render_template('signup.html')
 
+@app.route('/showSignin')
+def showSignin():
+    if session.get('user'):
+        return render_template('userLink.html')
+    else:
+        return render_template('signin.html')
 
+@app.route('/showBucketList')
+def showBucketList():
+    return render_template('bucketList.html')
+
+# @app.route('/logout')
+#def logout():
+ #   session.pop('user',None)
+  #  return redirect('/')
+
+
+@app.route('/userLink')
+def userHome():
+    if session.get('user'):
+        return render_template('userLink.html')
 
 
 if __name__ == "__main__":
