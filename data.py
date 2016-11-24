@@ -11,10 +11,18 @@ app.config['MYSQL_DATABASE_USER'] = 'gary'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'gary'
 app.config['MYSQL_DATABASE_DB'] = 'bucketlist'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
 
 @app.route("/")
 def main():
     return render_template('index.html')
+
+@app.route('/showSignUp')
+def showSignUp():
+    return render_template('signup.html')
+
+
+
 
 if __name__ == "__main__":
     app.run()
