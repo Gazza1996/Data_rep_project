@@ -1,17 +1,32 @@
-from flask import Flask, render_template, json, request, redirect, session, jsonify
+from flask import Flask as fl, render_template, json, request, redirect, session, jsonify
 from flask.ext.mysql import MySQL
+import sqlite3
 from werkzeug import generate_password_hash, check_password_hash
 
-mysql = MySQL()
-app = Flask(__name__)
-app.secret_key = 'G00319609'
+DATABASE = 'data/data.db'
+
+#mysql = MySQL()
+app = fl(__name__)
+#app.secret_key = 'G00319609'
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'gary'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'gary'
-app.config['MYSQL_DATABASE_DB'] = 'bucketList'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
+#app.config['MYSQL_DATABASE_USER'] = 'gary'
+#app.config['MYSQL_DATABASE_PASSWORD'] = 'gary'
+#app.config['MYSQL_DATABASE_DB'] = 'bucketList'
+#app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+#mysql.init_app(app)
+
+def get_db():
+    db = getattr(fl.g, '_database', None)
+    if db is None:
+        db = fl.g._database = sqlite3.connect(DATABASE)
+    return db
+
+@app.route("/")
+def hello():
+  cur = get_db().cursor()
+  cur.execute("SELECT name FROM mydb")
+  return str(cur.fetchall())
 
 # calls index.html
 @app.route('/')
@@ -25,7 +40,7 @@ def showSignUp():
 
 # calls bucketList.html
 @app.route('/showBucketLIst')
-def showAddWish():
+def showBucketList():
     return render_template('bucketList.html')
 
 # calls signin.html and userLink.html
@@ -42,30 +57,25 @@ def userHome():
     if session.get('user'):
         return render_template('userLink.html')
 
-#@app.route('/logout')
-#def logout():
- #   session.pop('user', None)
-  #  return redirect('/')
-
 # calls to get a wish
-@app.route('/getWish')
-def getWish():
+@app.route('/getBucketList')
+def getBucketList():
     try:
         if session.get('user'):
             _user = session.get('user')
 
             con = mysql.connect()
             cursor = con.cursor()
-            cursor.callproc('sp_GetWishByUser', (_user,))
-            wishes = cursor.fetchall()
+            cursor.callproc('sp_GetBucketListByUser', (_user,))
+            bucketList = cursor.fetchall()
 
             wishes_dict = []
-            for wish in wishes:
+            for wish in bucketList:
                 wish_dict = {
-                    'Id': wish[0],
-                    'Title': wish[1],
-                    'Description': wish[2],
-                    'Date': wish[4]}
+                    'Id': bucketList[0],
+                    'Title': bucketList[1],
+                    'Description': bucketList[2],
+                    'Date': bucketList[4]}
                 wishes_dict.append(wish_dict)
 
             return json.dumps(wishes_dict)
@@ -74,9 +84,9 @@ def getWish():
     except Exception as e:
         return render_template('/', error=str(e))
 
-# calls to add a wish
-@app.route('/addWish', methods=['POST'])
-def addWish():
+# calls to add to bucketList
+@app.route('/addBucketList', methods=['POST'])
+def addBucketList():
     try:
         if session.get('user'):
             _title = request.form['inputTitle']
@@ -85,12 +95,12 @@ def addWish():
 
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.callproc('sp_addWish', (_title, _description, _user))
+            cursor.callproc('sp_addBucketList', (_title, _description, _user))
             data = cursor.fetchall()
 
             if len(data) is 0:
                 conn.commit()
-                return redirect('/userHome')
+                return redirect('/userLink')
     finally:
         cursor.close()
         conn.close()
@@ -112,7 +122,7 @@ def validateLogin():
         if len(data) > 0:
             if check_password_hash(str(data[0][3]), _password):
                 session['user'] = data[0][0]
-                return redirect('/userHome')
+                return redirect('/userLink')
     finally:
         cursor.close()
         con.close()
