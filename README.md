@@ -1,8 +1,8 @@
 # data_rep_project
 Third Year Software Development Data Representation &amp; Querying Project
 
-Project Brief
-You are required to develop a single-page web application(SPA) [7] written
+##** Project Brief **
+> You are required to develop a single-page web application(SPA) [7] written
 in the programming language Python [1] using the Flask framework [6].
 You must devise an idea for a web application, write the software, write
 documentation explaining how the application works, and write a short user
@@ -24,10 +24,15 @@ I created my database then in table.py which created bucketlist.db in my data_re
 
 For my project i used different tutorial videos on youtube that taught me how to operate Python, Flask and HTML
 I also used the following links as guidelines:																
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms												
-http://www.w3schools.com/bootstrap/default.asp																
-http://stackoverflow.com/																		
-http://www.w3schools.com/css/																		
-http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3									
+- (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms)												
+- (http://www.w3schools.com/bootstrap/default.asp)																
+- (http://stackoverflow.com/)																		
+- (http://www.w3schools.com/css/)																		
+- (http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3)									
 
-
+##** Programs used **
+For my project i used two different programs. One was by JetBrains called PyCharm which i used to create my python files and which also created my database for me by creating a python file and running it in a command line
+'''
+python table.py
+'''
+I also used notepad++ to create all of my html programs. I could have also used notepad++ to create my python files but after discovering pycharm on the jetbrains website i decided that it was a better option as it provided me with the flask framework already pre-installed and was much better formatted and more user friendly for a first time python user.
