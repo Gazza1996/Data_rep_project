@@ -18,10 +18,10 @@ Following this i created a bucketList.html file which allows a user to input tex
 
 For my project i used different tutorial videos on youtube that taught me how to operate Python, Flask and HTML
 I also used the following links as guidelines:
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
-http://www.w3schools.com/bootstrap/default.asp
-http://stackoverflow.com/
-http://www.w3schools.com/css/
-http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms												
+http://www.w3schools.com/bootstrap/default.asp																
+http://stackoverflow.com/																		
+http://www.w3schools.com/css/																		
+http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3									
 
 
