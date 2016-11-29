@@ -32,7 +32,7 @@ I also used the following links as guidelines:
 
 ##** Programs used **
 For my project i used two different programs. One was by JetBrains called PyCharm which i used to create my python files and which also created my database for me by creating a python file and running it in a command line
-'''
+```
 python table.py
-'''
+```
 I also used notepad++ to create all of my html programs. I could have also used notepad++ to create my python files but after discovering pycharm on the jetbrains website i decided that it was a better option as it provided me with the flask framework already pre-installed and was much better formatted and more user friendly for a first time python user.
