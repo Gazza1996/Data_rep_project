@@ -1,8 +1,6 @@
-import datetime
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from table import *
-
+# database engine
 engine = create_engine('sqlite:///bucketlist.db', echo=True)
 
 # create a Session

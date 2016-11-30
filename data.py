@@ -3,10 +3,12 @@ import os
 from sqlalchemy.orm import sessionmaker
 from table import *
 
+# implementing bucketList database
 engine = create_engine('sqlite:///bucketlist.db', echo=True)
 
 app = Flask(__name__)
 
+# the start-up html page
 @app.route('/')
 def home():
     if not session.get('logged_in'):
@@ -14,6 +16,7 @@ def home():
     else:
         return "Hello User!"
 
+# the page that is entered after signing in
 @app.route('/showBucketList', methods=['POST'])
 def do_admin_showBucketList():
     POST_USERNAME = str(request.form['username'])
@@ -29,6 +32,7 @@ def do_admin_showBucketList():
         flash('wrong password!')
     return home()
 
+# the logout method
 @app.route("/logout")
 def logout():
     session['logged_in'] = False

@@ -1,13 +1,12 @@
-from sqlalchemy import *
-from sqlalchemy import create_engine, ForeignKey
-from sqlalchemy import Column, Date, Integer, String
+from sqlalchemy import create_engine
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, backref
 
+# database engine
 engine = create_engine('sqlite:///bucketlist.db', echo=True)
 Base = declarative_base()
 
-
+# setting up user information
 class User(Base):
     __tablename__ = "users"
 
