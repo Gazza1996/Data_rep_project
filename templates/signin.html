@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +16,7 @@
       <div class="header">
         <nav>
           <ul class="nav nav-tabs pull-right">
-            <li role="presentation" ><a href="/">Home</a></li>
+            <!-- <li role="presentation" ><a href="/">Home</a></li> -->
             <li role="presentation" class="active"><a href="#">Sign In</a></li>
           </ul>
         </nav>
@@ -27,8 +26,8 @@
       <!-- creates label and input for email address and password-->
       <div class="jumbotron">
         <h1>Bucket List</h1>
-        <form class="form-signin" action="/validateLogin" method="post">
-        <label for="inputEmail" class="sr-only">Name</label>
+        <form class="form-showBucketList" action="/showBucketList" method="POST">
+        <label for="inputEmail" class="sr-only">Admin</label>
         <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
