@@ -34,32 +34,14 @@ def logout():
     session['logged_in'] = False
     return home()
 
-# calls index.html
-#@app.route('/')
-#def main():
-    #return render_template('index.html')
-
 # calls bucketList.html
 #@app.route('/showBucketLIst')
 #def showBucketList():
     #return render_template('bucketList.html')
 
-# calls signin.html and userLink.html
 """
-@app.route('/showSignin')
-def showSignin():
-    if session.get('user'):
-        return render_template('userLink.html')
-    else:
-        return render_template('signin.html')
 
-# calls userLink.html
-@app.route('/userLink')
-def userHome():
-    if session.get('user'):
-        return render_template('userLink.html')
-
-# calls to get a wish
+ calls to get a wish
 @app.route('/getBucketList')
 def getBucketList():
     try:
@@ -106,30 +88,6 @@ def addBucketList():
     finally:
         cursor.close()
         conn.close()
-
-
- method to validate login is correct
-
-@app.route('/validateLogin', methods=['POST'])
-def validateLogin():
-    try:
-        _username = request.form['inputEmail']
-        _password = request.form['inputPassword']
-
-        # connect to mysql
-
-        con = mysql.connect()
-        cursor = con.cursor()
-        cursor.callproc('sp_validateLogin', (_username,))
-        data = cursor.fetchall()
-
-        if len(data) > 0:
-            if check_password_hash(str(data[0][3]), _password):
-                session['user'] = data[0][0]
-                return redirect('/userLink')
-    finally:
-        cursor.close()
-        con.close()
 """
 # method to run application
 if __name__ == "__main__":
