@@ -34,12 +34,9 @@ def logout():
     session['logged_in'] = False
     return home()
 
-# calls bucketList.html
-#@app.route('/showBucketLIst')
-#def showBucketList():
-    #return render_template('bucketList.html')
-
 """
+
+# calls signin.html and userLink.html
 
  calls to get a wish
 @app.route('/getBucketList')
