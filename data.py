@@ -1,4 +1,3 @@
-from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
 from sqlalchemy.orm import sessionmaker
@@ -8,17 +7,15 @@ engine = create_engine('sqlite:///bucketlist.db', echo=True)
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
     if not session.get('logged_in'):
         return render_template('signin.html')
     else:
-        return "Hello Boss!  <a href='/logout'>Logout</a>"
+        return "Hello User!"
 
-
-@app.route('/signin', methods=['POST'])
-def do_admin_login():
+@app.route('/showBucketList', methods=['POST'])
+def do_admin_showBucketList():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
 
@@ -32,35 +29,29 @@ def do_admin_login():
         flash('wrong password!')
     return home()
 
-
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
     return home()
 
 # calls index.html
-@app.route('/')
-def main():
-    return render_template('index.html')
-"""
-# calls signup.html
-@app.route('/showSignUp')
-def showSignUp():
-    return render_template('signup.html')
-"""
+#@app.route('/')
+#def main():
+    #return render_template('index.html')
+
 # calls bucketList.html
-@app.route('/showBucketLIst')
-def showBucketList():
-    return render_template('bucketList.html')
+#@app.route('/showBucketLIst')
+#def showBucketList():
+    #return render_template('bucketList.html')
 
 # calls signin.html and userLink.html
+"""
 @app.route('/showSignin')
 def showSignin():
     if session.get('user'):
         return render_template('userLink.html')
     else:
         return render_template('signin.html')
-
 
 # calls userLink.html
 @app.route('/userLink')
@@ -71,16 +62,16 @@ def userHome():
 # calls to get a wish
 @app.route('/getBucketList')
 def getBucketList():
-    #try:
-     #   if session.get('user'):
-      #      _user = session.get('user')
+    try:
+        if session.get('user'):
+            _user = session.get('user')
 
-            #con = mysql.connect()
-            #cursor = con.cursor()
-            #cursor.callproc('sp_GetBucketListByUser', (_user,))
-            #bucketList = cursor.fetchall()
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetBucketListByUser', (_user,))
+            bucketList = cursor.fetchall()
 
-            """wishes_dict = []
+            wishes_dict = []
             for wish in bucketList:
                 wish_dict = {
                     'Id': bucketList[0],
@@ -94,11 +85,11 @@ def getBucketList():
             return render_template('/')
     except Exception as e:
         return render_template('/', error=str(e))
-"""
-# calls to add to bucketList
+
+ calls to add to bucketList
 @app.route('/addBucketList', methods=['POST'])
 def addBucketList():
-   """ try:
+    try:
         if session.get('user'):
             _title = request.form['inputTitle']
             _description = request.form['inputDescription']
@@ -115,12 +106,13 @@ def addBucketList():
     finally:
         cursor.close()
         conn.close()
-"""
 
-# method to validate login is correct
+
+ method to validate login is correct
+
 @app.route('/validateLogin', methods=['POST'])
 def validateLogin():
-   """ try:
+    try:
         _username = request.form['inputEmail']
         _password = request.form['inputPassword']
 
@@ -138,33 +130,8 @@ def validateLogin():
     finally:
         cursor.close()
         con.close()
-
-# validate correct sign up formats
-@app.route('/signUp', methods=['POST', 'GET'])
-def signUp():
-    try:
-        _name = request.form['inputName']
-        _email = request.form['inputEmail']
-        _password = request.form['inputPassword']
-
-        # validate the received values
-        if _name and _email and _password:
-
-            # All Good, let's call MySQL
-
-            conn = mysql.connect()
-            cursor = conn.cursor()
-            _hashed_password = generate_password_hash(_password)
-            cursor.callproc('sp_createUser', (_name, _email, _hashed_password))
-            data = cursor.fetchall()
-
-            if len(data) is 0:
-                conn.commit()
-                return json.dumps({'message': 'User created successfully !'})
-    finally:
-        cursor.close()
-        conn.close()
 """
 # method to run application
 if __name__ == "__main__":
+    app.secret_key = os.urandom(12)
     app.run()
