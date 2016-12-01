@@ -42,10 +42,7 @@ def logout():
     return home()
 
 """
-
-# calls signin.html and userLink.html
-
- calls to get a wish
+ # calls to get a wish
 @app.route('/getBucketList')
 def getBucketList():
     try:
@@ -60,10 +57,8 @@ def getBucketList():
             wishes_dict = []
             for wish in bucketList:
                 wish_dict = {
-                    'Id': bucketList[0],
                     'Title': bucketList[1],
-                    'Description': bucketList[2],
-                    'Date': bucketList[4]}
+                    'Description': bucketList[2]
                 wishes_dict.append(wish_dict)
 
             return json.dumps(wishes_dict)
@@ -72,7 +67,7 @@ def getBucketList():
     except Exception as e:
         return render_template('/', error=str(e))
 
- calls to add to bucketList
+# calls to add to bucketList
 @app.route('/addBucketList', methods=['POST'])
 def addBucketList():
     try:
@@ -88,7 +83,7 @@ def addBucketList():
 
             if len(data) is 0:
                 conn.commit()
-                return redirect('/userLink')
+                return redirect('/signin')
     finally:
         cursor.close()
         conn.close()
