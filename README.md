@@ -58,9 +58,13 @@ For my project i used different tutorial videos on youtube that taught me how to
 I also used the following links as guidelines:																
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms												
 - http://www.w3schools.com/bootstrap/default.asp																
-- http://stackoverflow.com/ 																	
-- http://www.w3schools.com/css/																		
-- http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3									
+- http://stackoverflow.com/ 																																			
+- http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3	      
+- http://www.w3schools.com/bootstrap/bootstrap_buttons.asp                                                      
+- http://www.w3schools.com/bootstrap/bootstrap_forms.asp
+- http://www.w3schools.com/bootstrap/bootstrap_tabs_pills.asp
+- https://github.com/data-representation/example-sqlite/blob/master/setup.py
+- https://github.com/data-representation/example-sqlite/blob/master/webapp.py
 
 ##** Programs used **
 For my project i used two different programs. One was by JetBrains called PyCharm which i used to create my python files and which also created my database for me by creating a python file.
