@@ -10,10 +10,12 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "users"
 
+    # string for user information
     id = Column(Integer, primary_key=True)
     username = Column(String)
     password = Column(String)
 
+    # initiates username and password
     def __init__(self, username, password):
         self.username = username
         self.password = password

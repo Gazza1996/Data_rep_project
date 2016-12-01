@@ -7,6 +7,7 @@ engine = create_engine('sqlite:///bucketlist.db', echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+# user information
 user = User("admin", "password")
 session.add(user)
 
