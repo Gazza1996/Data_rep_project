@@ -21,6 +21,9 @@ def home():
 def do_admin_showBucketList():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
+    print("POST_USERNAME: ", POST_USERNAME)
+    print("POST_PASSWORD: ", POST_PASSWORD)
+
 
     Session = sessionmaker(bind=engine)
     s = Session()
