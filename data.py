@@ -3,6 +3,9 @@ import os
 from sqlalchemy.orm import sessionmaker
 from table import *
 
+# http://mindmapengineers.com/mmeblog/creating-web-app-scratch-using-python-flask-and-mysql-part-3
+# 
+
 # implementing bucketList database
 engine = create_engine('sqlite:///bucketlist.db', echo=True)
 
