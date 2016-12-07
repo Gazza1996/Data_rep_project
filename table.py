@@ -2,6 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
+# https://github.com/data-representation/example-sqlite/blob/master/setup.py
+# https://github.com/data-representation/example-sqlite/blob/master/webapp.py
 # database engine
 engine = create_engine('sqlite:///bucketlist.db', echo=True)
 Base = declarative_base()
