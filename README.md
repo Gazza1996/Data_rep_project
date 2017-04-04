@@ -1,23 +1,23 @@
 # data_rep_project
 Third Year Software Development Data Representation &amp; Querying Project
 
-##** Project Brief **
+## Project Brief 
 > You are required to develop a single-page web application(SPA) [7] written
 in the programming language Python [1] using the Flask framework [6].
 You must devise an idea for a web application, write the software, write
 documentation explaining how the application works, and write a short user
 guide for it.
 
-##** Description of my project **
+## Description of my project 
 My app will be a bucket list app where a user can sign up, sign in, create a new item to their bucket list and then logout again and save as many items to the list as they want.
 
-##** Planning Stage **
+## Planning Stage 
 I first started my project by researching different web app ideas on github and the google search engine. I had many different ideas such as: 
 - Currency Converter
 - Percentage calculator
 - Bucket List
 
-##** Development Stage **
+## Development Stage 
 To start my project i first had to install the different flask packages needed to run the python files.
 // edit here
 After this i began creating my index.html file by using a bootstrap method called Jumbotron which i found on the bootstrap website to design my application. I then defined a method in my data.py file in order to run the file in my browser. To run the file you need to open the command prompt and direct to the project folder and type the following: 
@@ -53,7 +53,7 @@ username = admin
 password = password
 ```
 
-##** Resources **
+## Resources 
 For my project i used different tutorial videos on youtube that taught me how to operate Python, Flask and HTML
 I also used the following links as guidelines:																
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms												
@@ -66,7 +66,7 @@ I also used the following links as guidelines:
 - https://github.com/data-representation/example-sqlite/blob/master/setup.py
 - https://github.com/data-representation/example-sqlite/blob/master/webapp.py
 
-##** Programs used **
+## Programs used 
 For my project i used two different programs. One was by JetBrains called PyCharm which i used to create my python files and which also created my database for me by creating a python file.
 I also used notepad++ to create all of my html programs. I could have also used notepad++ to create my python files but after discovering pycharm on the jetbrains website i decided that it was a better option as it provided me with the flask framework already pre-installed and was much better formatted and more user friendly for a first time python user.
 
@@ -77,7 +77,7 @@ git clone https://github.com/Gazza1996/data_rep
 ```
 This git command will copy the git repository from Github and will be saved to whatever location you are cloning it to.
 
-##** Conclusion **
+## Conclusion 
 In conclusion i would have spent more time researching topics that i coukd have based my project on. 
 I would spend more time developing my programming skills in pyhon and html in order to make my application more user friendly and easier to the eye.
 
